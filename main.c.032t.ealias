@@ -1,0 +1,732 @@
+
+;; Function printf (printf, funcdef_no=15, decl_uid=937, cgraph_uid=16, symbol_order=15)
+
+Points-to analysis
+
+Constraints:
+
+ANYTHING = &ANYTHING
+ESCAPED = *ESCAPED
+ESCAPED = ESCAPED + UNKNOWN
+*ESCAPED = NONLOCAL
+NONLOCAL = &NONLOCAL
+NONLOCAL = &ESCAPED
+INTEGER = &ANYTHING
+__fmt = &PARM_NOALIAS(9)
+PARM_NOALIAS(9) = &NONLOCAL
+ESCAPED = &NONLOCAL
+ESCAPED = __fmt
+_4 = NONLOCAL
+ESCAPED = _4
+
+Collapsing static cycles and doing variable substitution
+Building predecessor graph
+Detecting pointer and location equivalences
+
+
+// The constraint graph before var-substitution in dot format:
+strict digraph {
+  node [
+    shape = box
+  ]
+  edge [
+    fontsize = "12"
+  ]
+
+  // List of nodes and complex constraints in the constraint graph:
+"NULL";
+"ANYTHING"[label="ANYTHING = { 2 }"];
+"STRING";
+"ESCAPED"[label="ESCAPED = { 5 }"];
+"NONLOCAL"[label="NONLOCAL = { 4 5 }"];
+"STOREDANYTHING";
+"INTEGER"[label="INTEGER = { 2 }"];
+"__fmt"[label="__fmt = { 9 }"];
+"PARM_NOALIAS(9)"[label="PARM_NOALIAS(9) = { 5 }"];
+"__printf_chk";
+"_4";
+"*NULL";
+"*ANYTHING";
+"*STRING";
+"*STOREDANYTHING";
+"*INTEGER";
+"*__fmt";
+"*PARM_NOALIAS(9)";
+"*__printf_chk";
+
+  // Edges in the constraint graph:
+"NONLOCAL" -> "ESCAPED";
+"__fmt" -> "ESCAPED";
+"_4" -> "ESCAPED";
+"ESCAPED" -> "ESCAPED";
+"NONLOCAL" -> "_4";
+}
+
+
+Rewriting constraints and unifying variables
+Uniting pointer but not location equivalent variables
+Finding indirect cycles
+
+
+// The constraint graph before solve-graph in dot format:
+strict digraph {
+  node [
+    shape = box
+  ]
+  edge [
+    fontsize = "12"
+  ]
+
+  // List of nodes and complex constraints in the constraint graph:
+"NULL";
+"ANYTHING";
+"STRING";
+"ESCAPED" [label="\N\nESCAPED = ESCAPED + UNKNOWN\lESCAPED = *ESCAPED\l*ESCAPED = NONLOCAL\l"];
+"STOREDANYTHING";
+"INTEGER";
+"__fmt";
+"PARM_NOALIAS(9)";
+"__printf_chk";
+"_4";
+
+  // Edges in the constraint graph:
+"STOREDANYTHING" -> "ESCAPED";
+"STOREDANYTHING" -> "PARM_NOALIAS(9)";
+"__fmt" -> "ESCAPED";
+"_4" -> "ESCAPED";
+}
+
+
+Solving graph
+
+
+// The constraint graph after solve-graph in dot format:
+strict digraph {
+  node [
+    shape = box
+  ]
+  edge [
+    fontsize = "12"
+  ]
+
+  // List of nodes and complex constraints in the constraint graph:
+"NULL";
+"ANYTHING";
+"STRING";
+"ESCAPED" [label="\N\nESCAPED = ESCAPED + UNKNOWN\lESCAPED = *ESCAPED\l*ESCAPED = _4\l"];
+"STOREDANYTHING";
+"INTEGER";
+"__fmt";
+"PARM_NOALIAS(9)";
+"__printf_chk";
+"_4";
+
+  // Edges in the constraint graph:
+"STOREDANYTHING" -> "ESCAPED";
+"STOREDANYTHING" -> "PARM_NOALIAS(9)";
+"__fmt" -> "ESCAPED";
+"PARM_NOALIAS(9)" -> "ESCAPED";
+"_4" -> "ESCAPED";
+"_4" -> "PARM_NOALIAS(9)";
+}
+
+
+
+Points-to sets
+
+ANYTHING = { ANYTHING }
+ESCAPED = { ESCAPED NONLOCAL PARM_NOALIAS(9) }
+NONLOCAL = { ESCAPED NONLOCAL } same as _4
+STOREDANYTHING = { }
+INTEGER = { ANYTHING }
+__fmt = { PARM_NOALIAS(9) }
+PARM_NOALIAS(9) = { ESCAPED NONLOCAL }
+__printf_chk = { }
+_4 = { ESCAPED NONLOCAL }
+
+
+Alias information for printf
+
+Aliased symbols
+
+
+Call clobber information
+
+ESCAPED, points-to non-local, points-to vars: { D.2670 } (nonlocal, escaped, restrict)
+
+Flow-insensitive points-to information
+
+__fmt_2(D), points-to NULL, points-to vars: { D.2670 } (nonlocal, escaped, restrict)
+
+__attribute__((artificial, gnu_inline, always_inline))
+printf (const char * restrict __fmt)
+{
+  int _4;
+
+  <bb 2> :
+  _4 = __printf_chk (1, __fmt_2(D), __builtin_va_arg_pack ());
+  return _4;
+
+}
+
+
+
+;; Function mergeSort (mergeSort, funcdef_no=23, decl_uid=2636, cgraph_uid=24, symbol_order=23)
+
+Points-to analysis
+
+Constraints:
+
+ANYTHING = &ANYTHING
+ESCAPED = *ESCAPED
+ESCAPED = ESCAPED + UNKNOWN
+*ESCAPED = NONLOCAL
+NONLOCAL = &NONLOCAL
+NONLOCAL = &ESCAPED
+INTEGER = &ANYTHING
+
+Collapsing static cycles and doing variable substitution
+Building predecessor graph
+Detecting pointer and location equivalences
+
+
+// The constraint graph before var-substitution in dot format:
+strict digraph {
+  node [
+    shape = box
+  ]
+  edge [
+    fontsize = "12"
+  ]
+
+  // List of nodes and complex constraints in the constraint graph:
+"NULL";
+"ANYTHING"[label="ANYTHING = { 2 }"];
+"STRING";
+"ESCAPED";
+"NONLOCAL"[label="NONLOCAL = { 4 5 }"];
+"STOREDANYTHING";
+"INTEGER"[label="INTEGER = { 2 }"];
+"*NULL";
+"*ANYTHING";
+"*STRING";
+"*ESCAPED";
+"*NONLOCAL";
+"*STOREDANYTHING";
+"*INTEGER";
+
+  // Edges in the constraint graph:
+"*ESCAPED" -> "ESCAPED";
+"NONLOCAL" -> "*ESCAPED";
+}
+
+
+Rewriting constraints and unifying variables
+Uniting pointer but not location equivalent variables
+Finding indirect cycles
+
+
+// The constraint graph before solve-graph in dot format:
+strict digraph {
+  node [
+    shape = box
+  ]
+  edge [
+    fontsize = "12"
+  ]
+
+  // List of nodes and complex constraints in the constraint graph:
+"NULL";
+"ANYTHING";
+"STRING";
+"ESCAPED" [label="\N\nESCAPED = ESCAPED + UNKNOWN\lESCAPED = *ESCAPED\l*ESCAPED = NONLOCAL\l"];
+"NONLOCAL";
+"STOREDANYTHING";
+"INTEGER";
+
+  // Edges in the constraint graph:
+"STOREDANYTHING" -> "ESCAPED";
+}
+
+
+Solving graph
+
+
+// The constraint graph after solve-graph in dot format:
+strict digraph {
+  node [
+    shape = box
+  ]
+  edge [
+    fontsize = "12"
+  ]
+
+  // List of nodes and complex constraints in the constraint graph:
+"NULL";
+"ANYTHING";
+"STRING";
+"ESCAPED" [label="\N\nESCAPED = ESCAPED + UNKNOWN\lESCAPED = *ESCAPED\l*ESCAPED = NONLOCAL\l"];
+"NONLOCAL";
+"STOREDANYTHING";
+"INTEGER";
+
+  // Edges in the constraint graph:
+"STOREDANYTHING" -> "ESCAPED";
+}
+
+
+
+Points-to sets
+
+ANYTHING = { ANYTHING }
+ESCAPED = { }
+NONLOCAL = { ESCAPED NONLOCAL }
+STOREDANYTHING = { }
+INTEGER = { ANYTHING }
+
+
+Alias information for mergeSort
+
+Aliased symbols
+
+
+Call clobber information
+
+ESCAPED, points-to vars: { }
+
+Flow-insensitive points-to information
+
+
+mergeSort ()
+{
+  int x;
+
+  <bb 2> :
+  return;
+
+}
+
+
+
+;; Function main (main, funcdef_no=24, decl_uid=2639, cgraph_uid=25, symbol_order=24)
+
+Points-to analysis
+
+Constraints:
+
+ANYTHING = &ANYTHING
+ESCAPED = *ESCAPED
+ESCAPED = ESCAPED + UNKNOWN
+*ESCAPED = NONLOCAL
+NONLOCAL = &NONLOCAL
+NONLOCAL = &ESCAPED
+INTEGER = &ANYTHING
+ESCAPED = &NONLOCAL
+ESCAPED = &STRING
+_41 = NONLOCAL
+ESCAPED = &STRING
+ESCAPED = &n
+ESCAPED = &NONLOCAL
+ESCAPED = &STRING
+_40 = NONLOCAL
+ESCAPED = &STRING
+ESCAPED = &count
+start_24 = NONLOCAL
+c_35 = a_7 + UNKNOWN
+c_35 = b_9 + UNKNOWN
+a_36 = b_9
+b_37 = c_35
+j_38 = j_12 + UNKNOWN
+j_38 = &NONLOCAL
+a_7 = a_8
+a_7 = a_36
+b_9 = b_10
+b_9 = b_37
+j_12 = &NULL
+j_12 = j_38
+n.0_1 = n
+i_34 = i_11 + UNKNOWN
+i_34 = &NONLOCAL
+a_8 = &NULL
+a_8 = a_7
+b_10 = &NONLOCAL
+b_10 = b_9
+i_11 = &NULL
+i_11 = i_34
+count.1_2 = count
+end_27 = NONLOCAL
+_3 = end_27 + UNKNOWN
+_3 = start_24 + UNKNOWN
+_4 = _3 + UNKNOWN
+cpu_time_used_28 = _4 + UNKNOWN
+cpu_time_used_28 = &NONLOCAL
+count.2_5 = count
+n.3_6 = n
+ESCAPED = &NONLOCAL
+ESCAPED = &STRING
+ESCAPED = n.3_6
+ESCAPED = count.2_5
+ESCAPED = cpu_time_used_28
+_42 = NONLOCAL
+ESCAPED = &NULL
+
+Collapsing static cycles and doing variable substitution
+Building predecessor graph
+Detecting pointer and location equivalences
+
+
+// The constraint graph before var-substitution in dot format:
+strict digraph {
+  node [
+    shape = box
+  ]
+  edge [
+    fontsize = "12"
+  ]
+
+  // List of nodes and complex constraints in the constraint graph:
+"NULL";
+"ANYTHING"[label="ANYTHING = { 2 }"];
+"STRING";
+"ESCAPED"[label="ESCAPED = { 1 3 5 10 11 }"];
+"NONLOCAL"[label="NONLOCAL = { 4 5 }"];
+"STOREDANYTHING";
+"INTEGER"[label="INTEGER = { 2 }"];
+"__printf_chk";
+"*__isoc99_scanf";
+"n";
+"count";
+"clock";
+"_41";
+"_40";
+"start_24";
+"c_35";
+"a_7"[label="a_7 = { 1 }"];
+"b_9"[label="b_9 = { 5 }"];
+"a_36";
+"b_37";
+"j_38"[label="j_38 = { 5 }"];
+"j_12"[label="j_12 = { 1 }"];
+"n.0_1";
+"i_34"[label="i_34 = { 5 }"];
+"i_11"[label="i_11 = { 1 }"];
+"count.1_2";
+"end_27";
+"_3";
+"_4";
+"cpu_time_used_28"[label="cpu_time_used_28 = { 5 }"];
+"count.2_5";
+"n.3_6";
+"_42";
+"*NULL";
+"*ANYTHING";
+"*STRING";
+"*ESCAPED";
+"*NONLOCAL";
+"*STOREDANYTHING";
+"*INTEGER";
+"*__printf_chk";
+"**__isoc99_scanf";
+"*n";
+"*count";
+"*clock";
+"*_41";
+"*_40";
+"*start_24";
+"*c_35";
+"*a_7";
+"*b_9";
+"*a_36";
+"*b_37";
+"*j_38";
+"*j_12";
+"*a_8";
+"*b_10";
+"*n.0_1";
+"*i_34";
+"*i_11";
+"*count.1_2";
+"*end_27";
+"*_3";
+"*_4";
+"*cpu_time_used_28";
+"*count.2_5";
+"*n.3_6";
+"*_42";
+
+  // Edges in the constraint graph:
+"cpu_time_used_28" -> "ESCAPED";
+"count.2_5" -> "ESCAPED";
+"n.3_6" -> "ESCAPED";
+"*ESCAPED" -> "ESCAPED";
+"NONLOCAL" -> "_41";
+"NONLOCAL" -> "_40";
+"NONLOCAL" -> "start_24";
+"a_7" -> "a_7";
+"a_36" -> "a_7";
+"a_7" -> "a_7";
+"b_9" -> "b_9";
+"b_37" -> "b_9";
+"b_9" -> "b_9";
+"b_9" -> "a_36";
+"c_35" -> "b_37";
+"j_38" -> "j_12";
+"n" -> "n.0_1";
+"i_34" -> "i_11";
+"count" -> "count.1_2";
+"NONLOCAL" -> "end_27";
+"count" -> "count.2_5";
+"n" -> "n.3_6";
+"NONLOCAL" -> "_42";
+"NONLOCAL" -> "*ESCAPED";
+}
+
+
+Rewriting constraints and unifying variables
+Uniting pointer but not location equivalent variables
+Finding indirect cycles
+
+
+// The constraint graph before solve-graph in dot format:
+strict digraph {
+  node [
+    shape = box
+  ]
+  edge [
+    fontsize = "12"
+  ]
+
+  // List of nodes and complex constraints in the constraint graph:
+"NULL";
+"ANYTHING";
+"STRING";
+"ESCAPED" [label="\N\nESCAPED = ESCAPED + UNKNOWN\lESCAPED = *ESCAPED\l*ESCAPED = NONLOCAL\l"];
+"STOREDANYTHING";
+"INTEGER";
+"__printf_chk";
+"*__isoc99_scanf";
+"clock";
+"_41" [label="\N\n_3 = _41 + UNKNOWN\l"];
+"c_35";
+"a_7" [label="\N\nc_35 = a_7 + UNKNOWN\l"];
+"b_9" [label="\N\nc_35 = b_9 + UNKNOWN\l"];
+"j_38";
+"j_12" [label="\N\nj_38 = j_12 + UNKNOWN\l"];
+"n.0_1";
+"i_34";
+"i_11" [label="\N\ni_34 = i_11 + UNKNOWN\l"];
+"count.1_2";
+"_3" [label="\N\n_4 = _3 + UNKNOWN\l"];
+"_4" [label="\N\ncpu_time_used_28 = _4 + UNKNOWN\l"];
+"cpu_time_used_28";
+
+  // Edges in the constraint graph:
+"STOREDANYTHING" -> "ESCAPED";
+"STOREDANYTHING" -> "n.0_1";
+"STOREDANYTHING" -> "count.1_2";
+"STOREDANYTHING" -> "c_35";
+"STOREDANYTHING" -> "j_38";
+"STOREDANYTHING" -> "i_34";
+"STOREDANYTHING" -> "_3";
+"STOREDANYTHING" -> "_4";
+"STOREDANYTHING" -> "cpu_time_used_28";
+"c_35" -> "b_9";
+"b_9" -> "a_7";
+"j_38" -> "j_12";
+"n.0_1" -> "ESCAPED";
+"i_34" -> "i_11";
+"count.1_2" -> "ESCAPED";
+"cpu_time_used_28" -> "ESCAPED";
+}
+
+
+Solving graph
+
+
+// The constraint graph after solve-graph in dot format:
+strict digraph {
+  node [
+    shape = box
+  ]
+  edge [
+    fontsize = "12"
+  ]
+
+  // List of nodes and complex constraints in the constraint graph:
+"NULL";
+"ANYTHING";
+"STRING";
+"ESCAPED" [label="\N\nESCAPED = ESCAPED + UNKNOWN\lESCAPED = *ESCAPED\l*ESCAPED = _41\l"];
+"STOREDANYTHING";
+"INTEGER";
+"__printf_chk";
+"*__isoc99_scanf";
+"clock";
+"_41" [label="\N\n_3 = _41 + UNKNOWN\l"];
+"c_35";
+"a_7" [label="\N\nc_35 = a_7 + UNKNOWN\l"];
+"b_9" [label="\N\nc_35 = b_9 + UNKNOWN\l"];
+"j_38";
+"j_12" [label="\N\nj_38 = j_12 + UNKNOWN\l"];
+"n.0_1";
+"i_34";
+"i_11" [label="\N\ni_34 = i_11 + UNKNOWN\l"];
+"count.1_2";
+"_3" [label="\N\n_4 = _3 + UNKNOWN\l"];
+"_4" [label="\N\ncpu_time_used_28 = _4 + UNKNOWN\l"];
+"cpu_time_used_28";
+
+  // Edges in the constraint graph:
+"STOREDANYTHING" -> "ESCAPED";
+"STOREDANYTHING" -> "n.0_1";
+"STOREDANYTHING" -> "count.1_2";
+"STOREDANYTHING" -> "c_35";
+"STOREDANYTHING" -> "j_38";
+"STOREDANYTHING" -> "i_34";
+"STOREDANYTHING" -> "_3";
+"STOREDANYTHING" -> "_4";
+"STOREDANYTHING" -> "cpu_time_used_28";
+"_41" -> "ESCAPED";
+"_41" -> "n.0_1";
+"_41" -> "count.1_2";
+"c_35" -> "b_9";
+"b_9" -> "a_7";
+"j_38" -> "j_12";
+"n.0_1" -> "ESCAPED";
+"i_34" -> "i_11";
+"count.1_2" -> "ESCAPED";
+"cpu_time_used_28" -> "ESCAPED";
+}
+
+
+
+Points-to sets
+
+ANYTHING = { ANYTHING }
+ESCAPED = { NULL STRING ESCAPED NONLOCAL n count }
+NONLOCAL = { ESCAPED NONLOCAL } same as _41
+STOREDANYTHING = { }
+INTEGER = { ANYTHING }
+__printf_chk = { }
+*__isoc99_scanf = { }
+n = { ESCAPED NONLOCAL } same as n.0_1
+count = { ESCAPED NONLOCAL } same as count.1_2
+clock = { }
+_41 = { ESCAPED NONLOCAL }
+_40 = { ESCAPED NONLOCAL } same as _41
+start_24 = { ESCAPED NONLOCAL } same as _41
+c_35 = { NULL NONLOCAL }
+a_7 = { NULL NONLOCAL }
+b_9 = { NULL NONLOCAL }
+a_36 = { NULL NONLOCAL } same as b_9
+b_37 = { NULL NONLOCAL } same as c_35
+j_38 = { NULL NONLOCAL }
+j_12 = { NULL NONLOCAL }
+a_8 = { NULL NONLOCAL } same as a_7
+b_10 = { NULL NONLOCAL } same as b_9
+n.0_1 = { ESCAPED NONLOCAL }
+i_34 = { NULL NONLOCAL }
+i_11 = { NULL NONLOCAL }
+count.1_2 = { ESCAPED NONLOCAL }
+end_27 = { ESCAPED NONLOCAL } same as _41
+_3 = { ESCAPED NONLOCAL }
+_4 = { ESCAPED NONLOCAL }
+cpu_time_used_28 = { ESCAPED NONLOCAL }
+count.2_5 = { ESCAPED NONLOCAL } same as count.1_2
+n.3_6 = { ESCAPED NONLOCAL } same as n.0_1
+_42 = { ESCAPED NONLOCAL } same as _41
+
+
+Alias information for main
+
+Aliased symbols
+
+count, UID D.2642, int, is addressable
+n, UID D.2641, int, is addressable
+
+Call clobber information
+
+ESCAPED, points-to non-local, points-to NULL, points-to vars: { D.2641 D.2642 } (escaped)
+
+Flow-insensitive points-to information
+
+
+main ()
+{
+  int D.2680;
+  int D.2678;
+  int D.2676;
+  int D.2674;
+  int j;
+  int i;
+  int unusedVariable;
+  double cpu_time_used;
+  clock_t end;
+  clock_t start;
+  int c;
+  int b;
+  int a;
+  int count;
+  int n;
+  int n.0_1;
+  int count.1_2;
+  long int _3;
+  double _4;
+  int count.2_5;
+  int n.3_6;
+  int _40;
+  int _41;
+  int _42;
+
+  <bb 2> :
+  _41 = __printf_chk (1, "\xe8\xaf\xb7\xe8\xbe\x93\xe5\x85\xa5\xe6\x96\x90\xe6\xb3\xa2\xe9\x82\xa3\xe5\xa5\x91\xe6\x95\xb0\xe5\x88\x97\xe7\x9a\x84\xe9\xa1\xb9\xe6\x95\xb0 n: ");
+  scanf ("%d", &n);
+  _40 = __printf_chk (1, "\xe8\xaf\xb7\xe8\xbe\x93\xe5\x85\xa5\xe8\xae\xa1\xe7\xae\x97\xe6\xac\xa1\xe6\x95\xb0 count: ");
+  scanf ("%d", &count);
+  start_24 = clock ();
+  goto <bb 6>; [INV]
+
+  <bb 3> :
+  c_35 = a_7 + b_9;
+  a_36 = b_9;
+  b_37 = c_35;
+  j_38 = j_12 + 1;
+
+  <bb 4> :
+  # a_7 = PHI <a_8(6), a_36(3)>
+  # b_9 = PHI <b_10(6), b_37(3)>
+  # j_12 = PHI <0(6), j_38(3)>
+  n.0_1 = n;
+  if (n.0_1 > j_12)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 5>; [INV]
+
+  <bb 5> :
+  i_34 = i_11 + 1;
+
+  <bb 6> :
+  # a_8 = PHI <0(2), a_7(5)>
+  # b_10 = PHI <1(2), b_9(5)>
+  # i_11 = PHI <0(2), i_34(5)>
+  count.1_2 = count;
+  if (count.1_2 > i_11)
+    goto <bb 4>; [INV]
+  else
+    goto <bb 7>; [INV]
+
+  <bb 7> :
+  end_27 = clock ();
+  _3 = end_27 - start_24;
+  _4 = (double) _3;
+  cpu_time_used_28 = _4 / 1.0e+6;
+  count.2_5 = count;
+  n.3_6 = n;
+  _42 = __printf_chk (1, "\xe8\xae\xa1\xe7\xae\x97 %d \xe9\xa1\xb9\xe6\x96\x90\xe6\xb3\xa2\xe9\x82\xa3\xe5\xa5\x91\xe6\x95\xb0\xe5\x88\x97\xef\xbc\x8c\xe9\x87\x8d\xe5\xa4\x8d %d \xe6\xac\xa1\xe7\x9a\x84\xe6\x80\xbb\xe8\x80\x97\xe6\x97\xb6\xe4\xb8\xba: %f \xe7\xa7\x92\n", n.3_6, count.2_5, cpu_time_used_28);
+  n ={v} {CLOBBER};
+  count ={v} {CLOBBER};
+  return 0;
+
+}
+
+

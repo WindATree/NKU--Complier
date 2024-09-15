@@ -1,0 +1,89 @@
+
+;; Function mergeSort (mergeSort, funcdef_no=23, decl_uid=2636, cgraph_uid=24, symbol_order=23)
+
+;; 1 loops found
+;;
+;; Loop 0
+;;  header 0, latch 1
+;;  depth 0, outer -1
+;;  nodes: 0 1 2
+;; 2 succs { 1 }
+mergeSort ()
+{
+  <bb 2> [local count: 1073741824]:
+  return;
+
+}
+
+
+
+;; Function main (main, funcdef_no=24, decl_uid=2639, cgraph_uid=25, symbol_order=24) (executed once)
+
+;; 3 loops found
+;;
+;; Loop 0
+;;  header 0, latch 1
+;;  depth 0, outer -1
+;;  nodes: 0 1 2
+;; 2 succs { 1 }
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:107: __printf_chk: objsize = 9223372036854775807, fmtstr = "请输入斐波那契数列的项数 n: "
+  Directive 1 at offset 0: "请输入斐波那契数列的项数 n: ", length = 40
+    Result: 40, 40, 40, 40 (40, 40, 40, 40)
+  Directive 2 at offset 40: "", length = 1
+
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:107: __printf_chk: objsize = 9223372036854775807, fmtstr = "请输入计算次数 count: "
+  Directive 1 at offset 0: "请输入计算次数 count: ", length = 29
+    Result: 29, 29, 29, 29 (29, 29, 29, 29)
+  Directive 2 at offset 29: "", length = 1
+
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:107: __printf_chk: objsize = 9223372036854775807, fmtstr = "计算 %d 项斐波那契数列，重复 %d 次的总耗时为: %f 秒
+"
+  Directive 1 at offset 0: "计算 ", length = 7
+    Result: 7, 7, 7, 7 (7, 7, 7, 7)
+  Directive 2 at offset 7: "%d"
+    Result: 1, 1, 11, 11 (8, 8, 18, 18)
+  Directive 3 at offset 9: " 项斐波那契数列，重复 ", length = 32
+    Result: 32, 32, 32, 32 (40, 40, 50, 50)
+  Directive 4 at offset 41: "%d"
+    Result: 1, 1, 11, 11 (41, 41, 61, 61)
+  Directive 5 at offset 43: " 次的总耗时为: ", length = 21
+    Result: 21, 21, 21, 21 (62, 62, 82, 82)
+  Directive 6 at offset 64: "%f"
+    Result: 3, 8, 317, 322 (65, 70, 399, 404)
+  Directive 7 at offset 66: " 秒
+", length = 5
+    Result: 5, 5, 5, 5 (70, 75, 404, 409)
+  Directive 8 at offset 71: "", length = 1
+
+main ()
+{
+  double cpu_time_used;
+  clock_t end;
+  clock_t start;
+  int count;
+  int n;
+  long int _1;
+  double _2;
+  int count.2_3;
+  int n.3_4;
+
+  <bb 2> [local count: 1073741824]:
+  __printf_chk (1, "\xe8\xaf\xb7\xe8\xbe\x93\xe5\x85\xa5\xe6\x96\x90\xe6\xb3\xa2\xe9\x82\xa3\xe5\xa5\x91\xe6\x95\xb0\xe5\x88\x97\xe7\x9a\x84\xe9\xa1\xb9\xe6\x95\xb0 n: ");
+  scanf ("%d", &n);
+  __printf_chk (1, "\xe8\xaf\xb7\xe8\xbe\x93\xe5\x85\xa5\xe8\xae\xa1\xe7\xae\x97\xe6\xac\xa1\xe6\x95\xb0 count: ");
+  scanf ("%d", &count);
+  start_9 = clock ();
+  end_11 = clock ();
+  _1 = end_11 - start_9;
+  _2 = (double) _1;
+  cpu_time_used_12 = _2 / 1.0e+6;
+  count.2_3 = count;
+  n.3_4 = n;
+  __printf_chk (1, "\xe8\xae\xa1\xe7\xae\x97 %d \xe9\xa1\xb9\xe6\x96\x90\xe6\xb3\xa2\xe9\x82\xa3\xe5\xa5\x91\xe6\x95\xb0\xe5\x88\x97\xef\xbc\x8c\xe9\x87\x8d\xe5\xa4\x8d %d \xe6\xac\xa1\xe7\x9a\x84\xe6\x80\xbb\xe8\x80\x97\xe6\x97\xb6\xe4\xb8\xba: %f \xe7\xa7\x92\n", n.3_4, count.2_3, cpu_time_used_12);
+  n ={v} {CLOBBER};
+  count ={v} {CLOBBER};
+  return 0;
+
+}
+
+

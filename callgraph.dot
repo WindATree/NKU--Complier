@@ -1,0 +1,22 @@
+digraph "Call graph" {
+	label="Call graph";
+
+	Node0x2692170 [shape=record,label="{external node}"];
+	Node0x2692170 -> Node0x2692210;
+	Node0x2692170 -> Node0x26922b0;
+	Node0x2692170 -> Node0x2692350;
+	Node0x2692170 -> Node0x26922e0;
+	Node0x2692210 [shape=record,label="{main}"];
+	Node0x2692210 -> Node0x26922b0;
+	Node0x2692210 -> Node0x2692350;
+	Node0x2692210 -> Node0x26922e0;
+	Node0x2692210 -> Node0x26922e0;
+	Node0x2692210 -> Node0x2692350;
+	Node0x2692210 -> Node0x26922e0;
+	Node0x26922b0 [shape=record,label="{__isoc99_scanf}"];
+	Node0x26922b0 -> Node0x26921a0;
+	Node0x2692350 [shape=record,label="{clock}"];
+	Node0x2692350 -> Node0x26921a0;
+	Node0x26922e0 [shape=record,label="{printf}"];
+	Node0x26922e0 -> Node0x26921a0;
+}

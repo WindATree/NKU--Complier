@@ -1,0 +1,18 @@
+
+;; Function mergeSort (mergeSort, funcdef_no=23, decl_uid=2636, cgraph_uid=24, symbol_order=23)
+
+;; 1 loops found
+;;
+;; Loop 0
+;;  header 0, latch 1
+;;  depth 0, outer -1
+;;  nodes: 0 1 2
+;; 2 succs { 1 }
+mergeSort ()
+{
+  <bb 2> [local count: 1073741824]:
+  return;
+
+}
+
+

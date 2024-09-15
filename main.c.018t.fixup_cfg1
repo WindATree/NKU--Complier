@@ -1,0 +1,97 @@
+
+;; Function mergeSort (mergeSort, funcdef_no=0, decl_uid=2439, cgraph_uid=1, symbol_order=0)
+
+mergeSort ()
+{
+  int x;
+
+  <bb 2> :
+  x = 0;
+
+  <bb 3> :
+<L0>:
+  return;
+
+}
+
+
+
+;; Function main (main, funcdef_no=1, decl_uid=2442, cgraph_uid=2, symbol_order=1)
+
+main ()
+{
+  int j;
+  int i;
+  int unusedVariable;
+  double cpu_time_used;
+  clock_t end;
+  clock_t start;
+  int c;
+  int b;
+  int a;
+  int count;
+  int n;
+  int D.2465;
+
+  <bb 2> :
+  a = 0;
+  b = 1;
+  unusedVariable = 42;
+  if (b > 10)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 4>; [INV]
+
+  <bb 3> :
+  __builtin_puts (&"b is greater than 10"[0]);
+
+  <bb 4> :
+  scanf ("%d", &n);
+  scanf ("%d", &count);
+  start = clock ();
+  i = 0;
+  goto <bb 9>; [INV]
+
+  <bb 5> :
+  j = 0;
+  goto <bb 7>; [INV]
+
+  <bb 6> :
+  c = a + b;
+  a = b;
+  b = c;
+  j = j + 1;
+
+  <bb 7> :
+  n.0_1 = n;
+  if (j < n.0_1)
+    goto <bb 6>; [INV]
+  else
+    goto <bb 8>; [INV]
+
+  <bb 8> :
+  i = i + 1;
+
+  <bb 9> :
+  count.1_2 = count;
+  if (i < count.1_2)
+    goto <bb 5>; [INV]
+  else
+    goto <bb 10>; [INV]
+
+  <bb 10> :
+  end = clock ();
+  _3 = end - start;
+  _4 = (double) _3;
+  cpu_time_used = _4 / 1.0e+6;
+  D.2465 = 0;
+  n = {CLOBBER};
+  count = {CLOBBER};
+
+  <bb 11> :
+<L9>:
+  return D.2465;
+
+}
+
+

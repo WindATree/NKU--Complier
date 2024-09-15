@@ -1,0 +1,11 @@
+
+;; Function mergeSort (mergeSort, funcdef_no=23, decl_uid=2636, cgraph_uid=24, symbol_order=23)
+
+mergeSort ()
+{
+  <bb 2> [local count: 1073741824]:
+  return;
+
+}
+
+

@@ -1,0 +1,164 @@
+digraph "main.c.289r.pro_and_epilogue" {
+overlap=false;
+subgraph "cluster_mergeSort" {
+	style="dashed";
+	color="black";
+	label="mergeSort ()";
+	fn_0_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_0_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{\ \ \ \ 3:\ NOTE_INSN_BASIC_BLOCK\ 2\l\
+|\ \ \ 12:\ [--sp:DI]=bp:DI\l\
+|\ \ \ 13:\ bp:DI=sp:DI\l\
+|\ \ \ 14:\ [scratch]=unspec[[scratch]]\ 17\l\
+|\ \ \ 15:\ NOTE_INSN_PROLOGUE_END\l\
+|\ \ \ \ 2:\ NOTE_INSN_FUNCTION_BEG\l\
+|\ \ \ \ 5:\ [bp:DI-0x4]=0\l\
+|\ \ \ 10:\ 0\l\
+|\ \ \ 16:\ NOTE_INSN_EPILOGUE_BEG\l\
+|\ \ \ 17:\ [scratch]=unspec[[scratch]]\ 17\l\
+|\ \ \ 18:\ bp:DI=[sp:DI++]\l\
+\ \ \ \ \ \ REG_CFA_DEF_CFA\ sp:DI+0x8\l\
+|\ \ \ 19:\ simple_return\l\
+}"];
+
+	fn_0_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_0_basic_block_0:s -> fn_0_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_0_basic_block_2:s -> fn_0_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_0_basic_block_0:s -> fn_0_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_main" {
+	style="dashed";
+	color="black";
+	label="main ()";
+	fn_1_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_1_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{\ \ \ \ 4:\ NOTE_INSN_BASIC_BLOCK\ 2\l\
+|\ \ 100:\ [--sp:DI]=bp:DI\l\
+|\ \ 101:\ bp:DI=sp:DI\l\
+|\ \ 102:\ \{sp:DI=sp:DI-0x40;clobber\ flags:CC;clobber\ [scratch];\}\l\
+|\ \ 103:\ NOTE_INSN_PROLOGUE_END\l\
+|\ \ \ \ 2:\ NOTE_INSN_FUNCTION_BEG\l\
+|\ \ \ \ 3:\ \{[bp:DI-0x8]=unspec[[0x28]]\ 78;ax:DI=0;clobber\ flags:CC;\}\l\
+|\ \ \ \ 6:\ [bp:DI-0x38]=0\l\
+|\ \ \ \ 7:\ [bp:DI-0x34]=0x1\l\
+|\ \ \ \ 8:\ [bp:DI-0x28]=0x2a\l\
+|\ \ \ 11:\ flags:CCGC=cmp([bp:DI-0x34],0xa)\l\
+|\ \ \ 12:\ pc=\{(flags:CCGC\<=0)?L16:pc\}\l\
+}"];
+
+	fn_1_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{\ \ \ 13:\ NOTE_INSN_BASIC_BLOCK\ 3\l\
+|\ \ \ 14:\ di:DI=`*.LC0'\l\
+|\ \ \ 15:\ ax:SI=call\ [`puts']\ argc:0\l\
+}"];
+
+	fn_1_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{\ \ \ 16:\ L16:\l\
+|\ \ \ 17:\ NOTE_INSN_BASIC_BLOCK\ 4\l\
+|\ \ \ 98:\ ax:DI=bp:DI-0x40\l\
+|\ \ \ 19:\ si:DI=ax:DI\l\
+|\ \ \ 20:\ di:DI=`*.LC1'\l\
+|\ \ \ 21:\ ax:QI=0\l\
+|\ \ \ 22:\ ax:SI=call\ [`*__isoc99_scanf']\ argc:0\l\
+|\ \ \ 99:\ ax:DI=bp:DI-0x3c\l\
+|\ \ \ 24:\ si:DI=ax:DI\l\
+|\ \ \ 25:\ di:DI=`*.LC1'\l\
+|\ \ \ 26:\ ax:QI=0\l\
+|\ \ \ 27:\ ax:SI=call\ [`*__isoc99_scanf']\ argc:0\l\
+|\ \ \ 28:\ ax:DI=call\ [`clock']\ argc:0\l\
+\ \ \ \ \ \ REG_EH_REGION\ 0\l\
+|\ \ \ 30:\ [bp:DI-0x20]=ax:DI\l\
+|\ \ \ 31:\ [bp:DI-0x30]=0\l\
+|\ \ \ 93:\ pc=L60\l\
+}"];
+
+	fn_1_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{\ \ \ 60:\ L60:\l\
+|\ \ \ 61:\ NOTE_INSN_BASIC_BLOCK\ 9\l\
+|\ \ \ 62:\ ax:SI=[bp:DI-0x3c]\l\
+|\ \ \ 64:\ flags:CCGC=cmp([bp:DI-0x30],ax:SI)\l\
+|\ \ \ 65:\ pc=\{(flags:CCGC\<0)?L63:pc\}\l\
+}"];
+
+	fn_1_basic_block_10 [shape=record,style=filled,fillcolor=lightgrey,label="{\ \ \ 66:\ NOTE_INSN_BASIC_BLOCK\ 10\l\
+|\ \ \ 67:\ ax:DI=call\ [`clock']\ argc:0\l\
+\ \ \ \ \ \ REG_EH_REGION\ 0\l\
+|\ \ \ 69:\ [bp:DI-0x18]=ax:DI\l\
+|\ \ \ 70:\ ax:DI=[bp:DI-0x18]\l\
+|\ \ \ 71:\ \{ax:DI=ax:DI-[bp:DI-0x20];clobber\ flags:CC;\}\l\
+\ \ \ \ \ \ REG_EQUAL\ [frame:DI-0x18]-[frame:DI-0x20]\l\
+|\ \ \ 72:\ xmm0:DF=float(ax:DI)\l\
+|\ \ \ 73:\ xmm1:DF=[`*.LC2']\l\
+\ \ \ \ \ \ REG_EQUAL\ 1.0e+6\l\
+|\ \ \ 74:\ xmm0:DF=xmm0:DF/xmm1:DF\l\
+|\ \ \ 75:\ [bp:DI-0x10]=xmm0:DF\l\
+|\ \ \ 76:\ ax:SI=0\l\
+|\ \ \ 83:\ \{flags:CCZ=unspec[[bp:DI-0x8],[0x28]]\ 79;clobber\ cx:DI;\}\l\
+|\ \ \ 84:\ pc=\{(flags:CCZ==0)?L87:pc\}\l\
+}"];
+
+	fn_1_basic_block_11 [shape=record,style=filled,fillcolor=lightgrey,label="{\ \ \ 91:\ NOTE_INSN_BASIC_BLOCK\ 11\l\
+|\ \ \ 85:\ call\ [`__stack_chk_fail']\ argc:0\l\
+\ \ \ \ \ \ REG_ARGS_SIZE\ 0\l\
+\ \ \ \ \ \ REG_NORETURN\ 0\l\
+\ \ \ \ \ \ REG_EH_REGION\ 0\l\
+}"];
+
+	fn_1_basic_block_12 [shape=record,style=filled,fillcolor=lightgrey,label="{\ \ \ 87:\ L87:\l\
+|\ \ \ 92:\ NOTE_INSN_BASIC_BLOCK\ 12\l\
+|\ \ \ 89:\ use\ ax:SI\l\
+|\ \ 104:\ NOTE_INSN_EPILOGUE_BEG\l\
+|\ \ 105:\ \{sp:DI=bp:DI+0x8;bp:DI=[bp:DI];clobber\ [scratch];\}\l\
+\ \ \ \ \ \ REG_CFA_DEF_CFA\ sp:DI+0x8\l\
+|\ \ 106:\ simple_return\l\
+}"];
+
+	fn_1_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{\ \ \ 63:\ L63:\l\
+|\ \ \ 34:\ NOTE_INSN_BASIC_BLOCK\ 5\l\
+|\ \ \ 35:\ [bp:DI-0x2c]=0\l\
+|\ \ \ 95:\ pc=L52\l\
+}"];
+
+	fn_1_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{\ \ \ 52:\ L52:\l\
+|\ \ \ 53:\ NOTE_INSN_BASIC_BLOCK\ 7\l\
+|\ \ \ 54:\ ax:SI=[bp:DI-0x40]\l\
+|\ \ \ 56:\ flags:CCGC=cmp([bp:DI-0x2c],ax:SI)\l\
+|\ \ \ 57:\ pc=\{(flags:CCGC\<0)?L55:pc\}\l\
+}"];
+
+	fn_1_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{\ \ \ 58:\ NOTE_INSN_BASIC_BLOCK\ 8\l\
+|\ \ \ 59:\ \{[bp:DI-0x30]=[bp:DI-0x30]+0x1;clobber\ flags:CC;\}\l\
+}"];
+
+	fn_1_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{\ \ \ 55:\ L55:\l\
+|\ \ \ 38:\ NOTE_INSN_BASIC_BLOCK\ 6\l\
+|\ \ \ 43:\ dx:SI=[bp:DI-0x38]\l\
+|\ \ \ 44:\ ax:SI=[bp:DI-0x34]\l\
+|\ \ \ 45:\ \{ax:SI=ax:SI+dx:SI;clobber\ flags:CC;\}\l\
+\ \ \ \ \ \ REG_EQUAL\ [frame:DI-0x38]+[frame:DI-0x34]\l\
+|\ \ \ 46:\ [bp:DI-0x24]=ax:SI\l\
+|\ \ \ 47:\ ax:SI=[bp:DI-0x34]\l\
+|\ \ \ 48:\ [bp:DI-0x38]=ax:SI\l\
+|\ \ \ 49:\ ax:SI=[bp:DI-0x24]\l\
+|\ \ \ 50:\ [bp:DI-0x34]=ax:SI\l\
+|\ \ \ 51:\ \{[bp:DI-0x2c]=[bp:DI-0x2c]+0x1;clobber\ flags:CC;\}\l\
+}"];
+
+	fn_1_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_1_basic_block_0:s -> fn_1_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_1_basic_block_2:s -> fn_1_basic_block_3:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_1_basic_block_2:s -> fn_1_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_1_basic_block_3:s -> fn_1_basic_block_4:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_1_basic_block_4:s -> fn_1_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_1_basic_block_5:s -> fn_1_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_1_basic_block_6:s -> fn_1_basic_block_7:n [style="dotted,bold",color=blue,weight=10,constraint=false];
+	fn_1_basic_block_7:s -> fn_1_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_1_basic_block_7:s -> fn_1_basic_block_8:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_1_basic_block_8:s -> fn_1_basic_block_9:n [style="dotted,bold",color=blue,weight=10,constraint=false];
+	fn_1_basic_block_9:s -> fn_1_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_1_basic_block_9:s -> fn_1_basic_block_10:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_1_basic_block_10:s -> fn_1_basic_block_12:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_1_basic_block_10:s -> fn_1_basic_block_11:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_1_basic_block_12:s -> fn_1_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_1_basic_block_0:s -> fn_1_basic_block_1:n [style="invis",constraint=true];
+}
+}

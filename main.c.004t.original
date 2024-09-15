@@ -1,0 +1,75 @@
+
+;; Function mergeSort (null)
+;; enabled by -tree-original
+
+
+{
+  int x = 0;
+
+    int x = 0;
+  return;
+}
+
+
+;; Function main (null)
+;; enabled by -tree-original
+
+
+{
+  int n;
+  int count;
+  int a = 0;
+  int b = 1;
+  int c;
+  clock_t start;
+  clock_t end;
+  double cpu_time_used;
+  int unusedVariable = 42;
+
+    int n;
+    int count;
+    int a = 0;
+    int b = 1;
+    int c;
+    clock_t start;
+    clock_t end;
+    double cpu_time_used;
+    int unusedVariable = 42;
+  if (b > 10)
+    {
+      printf ((const char * restrict) "b is greater than 10\n");
+    }
+  scanf ((const char * restrict) "%d", &n);
+  scanf ((const char * restrict) "%d", &count);
+  start = clock ();
+  {
+    int i = 0;
+
+        int i = 0;
+    goto <D.2459>;
+    <D.2458>:;
+    {
+      int j = 0;
+
+            int j = 0;
+      goto <D.2456>;
+      <D.2455>:;
+      c = a + b;
+      a = b;
+      b = c;
+      j++ ;
+      <D.2456>:;
+      if (j < n) goto <D.2455>; else goto <D.2457>;
+      <D.2457>:;
+    }
+    i++ ;
+    <D.2459>:;
+    if (i < count) goto <D.2458>; else goto <D.2460>;
+    <D.2460>:;
+  }
+  end = clock ();
+  cpu_time_used = (double) (end - start) / 1.0e+6;
+  return 0;
+}
+return 0;
+
